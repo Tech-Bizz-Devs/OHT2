@@ -27,7 +27,7 @@ This Employee Management System is developed using Java Swing for the user inter
 - **Security Measures**: Appropriate security measures are in place to protect sensitive data stored in the MySQL database.
 
 
-###Snapshots
+## Snapshots
 ![Update](https://github.com/Shubham25104/OHT2/assets/117568702/94b6e782-0c1b-4659-86a4-adc4cb7592a8)
 ![Search](https://github.com/Shubham25104/OHT2/assets/117568702/cb24e06e-201f-4591-9d46-a1587976715a)
 ![Sal](https://github.com/Shubham25104/OHT2/assets/117568702/146f5a42-a3aa-441c-8107-4939618a0642)
