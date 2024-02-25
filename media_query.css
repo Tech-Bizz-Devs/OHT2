@@ -1,0 +1,338 @@
+@media(max-width:799px) {
+    .section-p1 {
+        padding: 40px 40px;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 20px rgb(0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar.active {
+        right: 0px;
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile i {
+        padding-left: 20px;
+        color: #1a1a1a;
+        font-size: 24px;
+    }
+
+    #close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+
+    #lg-bag {
+        display: none;
+    }
+
+    .login-btn {
+        margin-left: 15px;
+    }
+
+    #hero {
+        height: 70vh;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+        background-image: linear-gradient(180deg, rgb(13 15 45 / 50%), rgb(16 18 48 / 80%)), url("https://blogpakistan.pk/wp-content/uploads/2021/02/charcoal.jpg");
+        height: 100vh;
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+
+    #hero h1 {
+        color: #088178;
+    }
+#hero h2, #hero h4 ,#hero p {
+    color: #fff;
+}
+    #hero button {
+        background-color: #088178;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+        color: #fff;
+        border: none;
+    }
+
+    #feature {
+        justify-content: center;
+    }
+
+    #feature .fe-box {
+        margin: 15px 15px;
+    }
+
+    #product1 .pro-container {
+        justify-content: center;
+    }
+
+    #product1 .pro {
+
+        margin: 15px;
+
+    }
+
+    #banner {
+        height: 20vh;
+    }
+
+    #banner h2 {
+        font-size: 15px;
+    }
+
+    #ad-banner .banner-box1 {
+        min-width: 100%;
+        height: 30vh;
+        padding: 90px;
+
+    }
+
+    #ad-banner .banner-box2 {
+        min-width: 100%;
+        height: 30vh;
+        padding: 90px;
+
+    }
+
+    #ad-banner-other {
+        padding: 0 30px;
+
+    }
+
+    #ad-banner-other .banner-other-1 {
+        min-width: 38px;
+    }
+
+    #ad-banner-other .banner-other-2 {
+        min-width: 38px;
+
+    }
+
+    #ad-banner-other .banner-other-3 {
+        min-width: 38px;
+
+    }
+
+    #newsletter .form {
+
+        width: 70%;
+        padding-top: 15px;
+    }
+}
+
+@media(max-width: 477px) {
+
+    .section-p1 {
+        padding: 20px;
+    }
+
+    #header {
+
+        padding: 10px 30px;
+
+    }
+
+    #hero {
+        padding: 0 20px;
+        background-position: 55%;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    #feature .fe-box {
+        margin: 0 0 15px 0;
+    }
+
+    #feature {
+        justify-content: space-between;
+    }
+
+    #product1 .pro {
+        width: 100%;
+
+    }
+
+    #banner {
+        height: 40vh;
+    }
+
+    #banner h2 {
+        font-size: 15px;
+    }
+
+    #ad-banner .banner-box1 {
+        height: 40vh;
+    }
+
+    #ad-banner .banner-box2 {
+        margin-top: 20px;
+    }
+
+    #banner3 {
+        padding: 0 20px;
+    }
+
+    #sm-banner .banner-box {
+        min-width: 100%;
+        height: 30vh;
+        margin-bottom: 20px;
+    }
+
+    #banner3 {
+        padding: 0 40px;
+    }
+
+    #banner3 .banner-box {
+        width: 20px;
+    }
+
+
+    #newsletter .form {
+        width: 100%;
+    }
+
+    #newsletter {
+        padding: 40px 20px;
+    }
+
+    .copyright {
+        margin-top: 50px;
+    }
+
+    /* single product */
+    #pro_details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #pro_details .single_pro_image {
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    #pro_details .single_pro_details {
+        width: 100%;
+
+    }
+
+    #newsletter .newsletter_form {
+        width: auto;
+    }
+}
+
+/* blog page */
+
+#blog .blog-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+#blog {
+    padding: 100px 20px 0 20px;
+}
+
+#blog .blog-image {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 30px;
+}
+
+#blog .blog-detail {
+    width: 100%;
+}
+
+/* about section*/
+#about-head {
+    flex-direction: column;
+}
+
+#about-head img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#about-head div {
+    padding-left: 0px;
+}
+
+#about-app .video {
+    width: 100%;
+
+}
+
+/* cart section */
+#cart-add {
+    flex-direction: column;
+}
+
+#coupon {
+    width: 100%;
+}
+
+#subtotal {
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* Our Team */
+
+@media (max-width: 950px) {
+    .ourTeam_Background {
+        font-size: 3.5rem;
+        /* margin: 0 20%; */
+    }
+
+    .ourTeam_Heading>h1 {
+        font-size: 3.5rem;
+    }
+
+    .ourTeam_Body {
+        flex-direction: column;
+    }
+
+    .ourTeam_Member1,
+    .ourTeam_Member2,
+    .ourTeam_Member3,
+    .ourTeam_Member4 {
+        margin-bottom: 10rem;
+        width: 100%;
+    }
+}
