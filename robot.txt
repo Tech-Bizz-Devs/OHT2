@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+Sitemap: http://www.mfpower.in/sitemap.xml  
