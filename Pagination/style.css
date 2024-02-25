@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: beige;
+}
+
+li {
+    list-style: none;
+}
+
+.logo a,
+.links a,
+.dropdown_menu a {
+    text-decoration: none;
+    color: #0e0e0f;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* HEADER */
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.navbar .links {
+    white-space: nowrap;
+    display: flex;
+    margin-left: 5%;
+    gap: 6rem;
+}
+
+.navbar .toggle_btn {
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* DropDown Menu */
+.dropdown_menu {
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 30px;
+    z-index: 10;
+    display: block;
+    right: 2rem;
+    top: 6.25rem;
+    height: 0;
+    background-color: rgba(240, 240, 240, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 0.02);
+}
+
+.dropdown_menu.open {
+    height: 240px;
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1110px) {
+
+    .navbar .links {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+        margin-left: 69%;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+        margin: 1rem;
+    }
+}
+
+/* Image Carousel */
+
+.image-pagination {
+    padding: 20px 40px 40px 50px;
+    margin: auto;
+}
+
+h1 {
+    padding-bottom: 10px;
+}
+
+.img-box img {
+      max-width: 100%;
+}
+
+.slider-container .cotnainer {
+    padding: 0 15px;
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+.card-slider {
+    padding: 50px;
+}
+
+@media only screen and (min-device-width:300px) and (max-device-width: 768px) {
+    .swiper-navBtn {
+        display: none;
+    }
+}
