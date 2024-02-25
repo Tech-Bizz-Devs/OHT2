@@ -1,356 +1,252 @@
-import javax.swing.table.*;
-class NewJFrame extends javax.swing.JFrame {
-    public NewJFrame() {
-        initComponents();
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.security.SecureRandom;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.*;
+import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.PBEParameterSpec;
+
+// This class is used to create a loading screen
+class SplashScreen {
+    JFrame frame;
+    JLabel image = new JLabel(new ImageIcon("key-lock.png"));
+    JLabel text = new JLabel("PASSWORD & NOTES MANAGER");
+    JProgressBar progressBar = new JProgressBar();
+    JLabel message = new JLabel();
+
+    SplashScreen() {
+        createGUI();
+        addImage();
+        addText();
+        addProgressBar();
+        runningPBar();
     }
 
-    DefaultTableModel dm = new DefaultTableModel();
+    public void createGUI() {
+        frame = new JFrame(); // to create a frame
+        frame.getContentPane().setLayout(null); // to set the layout of the frame
+        frame.setUndecorated(true);
+        frame.setSize(400, 400); // to set the size of the frame
+        frame.setLocationRelativeTo(null);
+        frame.getContentPane().setBackground(new Color(0XFF8787)); // to set the background color of the frame
+        frame.setVisible(true);
+    }
 
-    @SuppressWarnings("unchecked")
-    private void initComponents() {
+    public void addImage() {
+        image.setSize(400, 200); // to set the size of the image
+        frame.add(image);
+    }
 
-        jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+    public void addText() {
+        text.setFont(new Font("MV Boli", Font.BOLD, 20)); // to set the font of the text
+        text.setBounds(30, 200, 400, 30);
+        text.setForeground(Color.black);
+        frame.add(text);
+    }
 
-        setLocation(500, 250);
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    public void addProgressBar() {
+        progressBar.setBounds(100, 280, 200, 30); // to set the size of the progress bar
+        progressBar.setBorderPainted(true);
+        progressBar.setStringPainted(true);
+        progressBar.setBackground(Color.black);
+        progressBar.setForeground(new Color(0X38E54D));
+        progressBar.setValue(0);
+        frame.add(progressBar);
+    }
 
-        jLabel1.setBackground(new java.awt.Color(189, 147, 249));
-        jLabel1.setFont(new java.awt.Font("Droid Sans", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Password Manager");
+    public void runningPBar() {
+        int i = 0; // Creating an integer variable and initializing it to 0
+        while (i <= 100) {
+            try {
+                Thread.sleep(40); // Pausing execution for 50 milliseconds
+                progressBar.setValue(i); // Setting value of Progress Bar
+                i++;
+                if (i == 100)
+                    frame.dispose();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "No", "Name", "Username", "Password"
+class PasswordStrengthChecker {
+    public boolean isStrong(String password) {
+        // Implement your password strength checking logic here
+        // For example, you can check the length, presence of uppercase, lowercase,
+        // digits, and special characters
+        // For simplicity, let's consider a password strong if it has at least 8 characters
+        return password.length() >= 8;
+    }
+}
+
+interface hashTableMap {
+    Object get_Acc(Object Account);
+
+    int add_Acc(Object Account, Object passwd);
+
+    Object remove_Acc(Object Account);
+}
+
+class HashtablePassword implements hashTableMap {
+    private Entry[] entries; // The array of entries
+    private final float loadFactor; // The load factor
+    private int size, used; // used acquires space for NIL
+    private final Entry NIL = new Entry(null, null); // Deleted entries
+
+    private static class Entry {
+        Object key, value;
+
+        Entry(Object k, Object v) {
+            key = k;
+            value = v;
+        }
+    }
+
+    public HashtablePassword(int capacity, float loadFactor) {
+        entries = new Entry[capacity];
+        this.loadFactor = loadFactor;
+    }
+
+    // Complementary functions
+    @Override
+    public int add_Acc(Object Account, Object passwd) {
+        // Your implementation to add account and password to the hash table
+        return 0; // Dummy return value
+    }
+
+    @Override
+    public Object get_Acc(Object Account) {
+        // Your implementation to get password from the hash table
+        return null; // Dummy return value
+    }
+
+    @Override
+    public Object remove_Acc(Object Account) {
+        // Your implementation to remove account and password from the hash table
+        return null; // Dummy return value
+    }
+}
+
+class PasswordManager implements ActionListener {
+
+    // Store password class reference
+    HashtablePassword data = new HashtablePassword(15, 0.5F);
+
+    // GUI variables declaration
+    JFrame frame;
+    JLabel background;
+    Container conn1;
+    JButton PassStoreBtn, PassSearchBtn, PassDeleteBtn;
+
+    PasswordManager() {
+        frame = new JFrame("Password Manager");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+        frame.setResizable(false);
+        ImageIcon img = new ImageIcon("background.png");
+        background = new JLabel("", img, JLabel.CENTER);
+        background.setBounds(0, 0, 400, 400);
+        background.setVisible(true);
+        frame.add(background);
+
+        FrameGUI(frame);
+
+        conn1 = frame.getContentPane();
+        ContainerGUI(conn1);
+
+        // Store password button settings
+        PassStoreBtn = new JButton("STORE PASSWORD");
+        PassStoreBtn.setBounds(90, 90, 220, 40);
+        conn1.add(PassStoreBtn);
+        GUIButtonsSetting(PassStoreBtn);
+        // Store password action
+        PassStoreBtn.addActionListener(e -> {
+            if (PassStoreBtn == e.getSource()) {
+                try {
+                    // Implement storing password logic here
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(conn1, "Error storing password", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-        ) {
-            Class[] types = new Class [] {
-                    java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                    false, false, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setToolTipText("");
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(5);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-        }
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("All Items", jPanel1);
-
-        jLabel2.setText("Username");
-
-        jLabel3.setText("Password");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        // Search password button settings
+        PassSearchBtn = new JButton("SEARCH PASSWORD");
+        PassSearchBtn.setBounds(90, 160, 220, 40);
+        conn1.add(PassSearchBtn);
+        GUIButtonsSetting(PassSearchBtn);
+        // Search password action
+        PassSearchBtn.addActionListener(e -> {
+            if (PassSearchBtn == e.getSource()) {
+                try {
+                    // Implement searching password logic here
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(conn1, "Error searching password", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
-        jLabel5.setText("Name");
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel4.setText("Add Item");
-
-        jLabel6.setText("Remove Item");
-
-        jLabel7.setText("Id");
-
-        jButton2.setText("Remove");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        // Delete password button settings
+        PassDeleteBtn = new JButton("DELETE PASSWORD");
+        PassDeleteBtn.setBounds(90, 230, 220, 40);
+        conn1.add(PassDeleteBtn);
+        GUIButtonsSetting(PassDeleteBtn);
+        // Delete password action
+        PassDeleteBtn.addActionListener(e -> {
+            if (PassDeleteBtn == e.getSource()) {
+                try {
+                    // Implement deleting password logic here
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(conn1, "Error deleting password", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(jLabel5)
-                                                        .addComponent(jLabel3))
-                                                .addGap(35, 35, 35)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jTextField2)
-                                                        .addComponent(jTextField3)
-                                                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
-                                        .addComponent(jButton1)
-                                        .addComponent(jLabel4))
-                                .addGap(55, 55, 55)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addGap(67, 67, 67)
-                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jButton2))
-                                .addContainerGap(124, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel5))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30)
-                                .addComponent(jButton1)
-                                .addGap(76, 76, 76))
-                        .addComponent(jSeparator1)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addComponent(jButton2)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Add Item", jPanel2);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(348, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(195, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane1)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        logArr[i] = new Login(jTextField1.getText(), jTextField2.getText(), jTextField3.getText());
-        i++;
-        updateTable();
+    // Frame settings
+    public static void FrameGUI(JFrame frame) {
+        frame.setVisible(true);
+        frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
     }
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    // Container settings
+    public static void ContainerGUI(Container conn) {
+        conn.setVisible(true);
+        conn.setBackground(Color.getHSBColor(20.4f, 10.5f, 12.9f));
+        conn.setLayout(null);
     }
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
-        // TODO add your handling code here:
+    // Buttons settings
+    public void GUIButtonsSetting(JButton btn) {
+        btn.setBackground(new Color(0XFB2576));
+        btn.setForeground(Color.WHITE);
+        btn.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        btn.setFocusable(false);
+        Cursor crs = new Cursor(Cursor.HAND_CURSOR);
+        btn.setCursor(crs);
+        Font fn = new Font("MV Boli", Font.BOLD, 15);
+        btn.setFont(fn);
     }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        int index = Integer.parseInt(jTextField4.getText());
-        if(index <= i){
-            for(int n=index-1; n< i-1; n++){
-                logArr[n] = logArr[n+1];
-            }
-            logArr[i-1] = null;
-            i--;
-            updateTable();
-        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
     }
 
-    private void updateTable() {
-        int j = 0;
-
-        for(j=0; j<20; j++){
-            jTable1.setValueAt("", j, 0);
-            jTable1.setValueAt("", j, 1);
-            jTable1.setValueAt("", j, 2);
-            jTable1.setValueAt("", j, 3);
-        }
-
-        for (j = 0; j < i; j++) {
-            jTable1.setValueAt(j + 1, j, 0);
-            jTable1.setValueAt(logArr[j].name, j, 1);
-            jTable1.setValueAt(logArr[j].username, j, 2);
-            jTable1.setValueAt(logArr[j].password, j, 3);
-
-        }
-    }
-
-    class Login {
-
-        String name, username, password;
-
-        Login(String n, String uname, String pass) {
-            name = n;
-            username = uname;
-            password = pass;
-        }
-    }
-
-    Login logArr[] = new Login[20];
-    int i = 0;
-
-    public static void main(String args[]) {
+    // Main method to run the application
+    public static void main(String[] args) {
+        // Loading screen class
+        new SplashScreen();
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Darcula".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            new PasswordManager();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewJFrame().setVisible(true);
-            }
-        });
     }
-
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
 }
