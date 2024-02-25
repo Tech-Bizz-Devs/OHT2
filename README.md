@@ -1,6 +1,6 @@
-![WhatsApp Image 2024-02-25 at 3 43 39 PM (1)](https://github.com/bhagwanlsalvi/OHT2/assets/131893066/0b046195-6f5f-4802-b8e2-de3f3216eeab)# Java GUI crud with MYSQL Database XAMPP
+# Java GUI crud with MYSQL Database XAMPP
 
-## Simple Project step by step using mysql database and Netbeans IDE
+## Crud operation in java with NetBeans 
 
 ## versions :-
 1. java jdk  version: 21.0.0
