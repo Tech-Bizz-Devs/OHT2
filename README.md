@@ -26,10 +26,14 @@
 
 ## with responsive designs 
 
-
+## Images design one :-
 ![WhatsApp Image 2024-02-25 at 3 43 39 PM (1)](https://github.com/bhagwanlsalvi/OHT2/assets/131893066/b0eb04f4-b861-449a-bafb-77e931c8a6f6)
 
-![WhatsApp Image 2024-02-25 at 3 43 39 PM](https://github.com/bhagwanlsalvi/OHT2/assets/131893066/5feefd89-0555-49b5-9d53-3d0cd5a74219)
+
+
+## Images design two:-
+![WhatsApp Image 2024-02-25 at 3 43 27 PM](https://github.com/bhagwanlsalvi/OHT2/assets/131893066/740c84d1-6a46-4c4a-9228-ab5b096ba590)
+
 
 
 
