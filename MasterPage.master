@@ -1,0 +1,452 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap Min CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <!-- Owl Theme Default Min CSS -->
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css"/>
+    <!-- Owl Carousel Min CSS -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css"/>
+    <!-- Boxicons Min CSS -->
+    <link rel="stylesheet" href="assets/css/boxicons.min.css"/>
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="assets/css/flaticon.css"/>
+    <!-- Meanmenu Min CSS -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css"/>
+    <!-- Animate Min CSS -->
+    <link rel="stylesheet" href="assets/css/animate.min.css"/>
+    <!-- Nice Select Min CSS -->
+    <link rel="stylesheet" href="assets/css/nice-select.min.css"/>
+    <!-- Date Picker CSS-->
+    <link rel="stylesheet" href="assets/css/date-picker.min.css"/>
+    <!-- Magnific Popup Min CSS -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css"/>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+    <!-- Title -->
+    <title>Mfpower.in improves the performance level of both male & female.  </title>
+     <meta name="description" content="Mf power helps to fix the performance issues of male & female , improve the  testosterone level , boost up the performance , increases the energy level."/>
+  <meta name="keywords" content="mfpower.in,Increase your Stamina,Improve your Vitality,Increase Endurance,Increase Testosterone levels,Increase energy Level,Improve your Performance,solves your Premature ejaculation Problem,solves your erectile dysfunction"/>
+  <meta name="author" content="mfpower.in"/>
+
+    <meta property="og:title" content="Mfpower.in improves the performance level of both male & female. "/>
+<meta property="og:description" content="Mf power helps to fix the performance issues of male & female , improve the  testosterone level , boost up the performance , increases the energy level."/>
+<%--<meta property="og:image" content="https://mfpower.in/assets/images/favicon.png"/>--%>
+<meta property="og:url" content="https://mfpower.in"/>
+
+
+
+    <meta name="twitter:title" content="Mfpower.in improves the performance level of both male & female. "/>
+<meta name="twitter:description" content="Mf power helps to fix the performance issues of male & female , improve the  testosterone level , boost up the performance , increases the energy level."/>
+<meta name="twitter:url" content="https://mfpower.in/assets/images/favicon.png"/>
+<meta name="twitter:card" content="Mfpower.in improves the performance level of both male & female. "/>
+
+
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=6263a3297c21c20019e99e03&product=sop' async='async'></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MBRTCMY531"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MBRTCMY531');
+</script>
+    <style>
+        .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:120px;
+	right:20px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+        @media only screen and (max-width: 768px) {
+
+            #a_css {
+                font-size:10px;
+            }
+            #a_css1 {
+                font-size:10px;
+            }
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="preloader">
+            <div class="lds-ripple">
+                <span class="loader-inner-1"></span>
+                <span class="loader-inner-2"></span>
+                <span class="loader-inner-3"></span>
+                <span class="loader-inner-4"></span>
+            </div>
+        </div>
+        <!-- End Preloader Area -->
+
+        <!-- Start Header Area -->
+        <header class="header-area">
+            <!-- Start Top Header -->
+            <div class="top-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="header-left-content">
+                                <ul class="contact-info">
+                                    <li >
+                                       
+                                        <a href="#"  id="a_css"> <i class="bx bx-phone-call"></i>+1234567890</a>      
+                                       
+                                       
+                                    </li>
+                                       <li  > <a href="#"  id="a_css1"> <i class="bx bx-envelope"></i>email</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="header-right-content">
+
+
+
+                                <ul class="my-account">
+                                   <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <i class="bx bxl-instagram"></i>
+                                    </a>
+                                </li>
+                                  <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <i class="bx bxl-youtube"></i>
+                                    </a>
+                                </li>
+                                    <%=login %>
+                                    <li>
+                                        <a href="cart.aspx" class="basket">
+                                            <i class='bx bxs-cart-alt'></i>
+                                            Cart
+										
+                                            <span><%=count %></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Top Header -->
+
+            <!-- Start Navbar Area -->
+            <div class="navbar-area">
+                <div class="mobile-nav">
+                    <div class="container">
+                        <div class="mobile-menu">
+                            <div class="logo">
+                                <a href="index.aspx">
+                                    <h1>Logo</h1>
+                                    <%--<img src="assets/images/lo" alt="mfpower" style="height:60px"/>--%>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="desktop-nav">
+                    <div class="container">
+                        <nav class="navbar navbar-expand-md navbar-light">
+                            <a class="navbar-brand" href="index.aspx">
+                                <img src="assets/images/logo.png" alt="mfpower" style="height:60px"/>
+                            </a>
+
+                            <div class="collapse navbar-collapse mean-menu">
+                                <ul class="navbar-nav m-auto">
+
+                                    <li class="nav-item">
+                                        <a href="Index.aspx" class="nav-link active">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="fcare.aspx" class="nav-link">F-Care</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="MPower.aspx" class="nav-link">M-Power</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="FamilyKit.aspx" class="nav-link">Family Kit</a>
+                                    </li>
+                                       <li class="nav-item">
+                                        <a href="AffiliateProgram.aspx" class="nav-link">3-6-9 Affiliate Program</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="Blog.aspx" class="nav-link">Blog</a>
+                                    </li>
+                                  
+                                     <li class="nav-item">
+                                        <a href="cart.aspx" class="nav-link">Cart  <i class='bx bxs-cart-alt' style="color:#17a9fc"></i> (<%=count %>)</a>
+                                    </li>
+                                </ul>
+
+                                <div class="others-option">
+                                
+
+                                    <div class="get-quote">
+                                        <a href="appointment.aspx" class="default-btn">Get Appointment
+										</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="others-option-for-responsive">
+                    <div class="container">
+                        <div class="dot-menu">
+                            <i class='bx bxs-cart-alt'></i>
+                                            Cart
+										
+                                            <span><%=count %></span>
+                            <div class="inner">
+                                <div class="circle circle-one"></div>
+                                <div class="circle circle-two"></div>
+                                <div class="circle circle-three"></div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="option-inner">
+                                <div class="others-option justify-content-center d-flex align-items-center">
+                                    <div class="option-item">
+                                        <i class="search-btn bx bx-search"></i>
+                                        <i class="close-btn bx bx-x"></i>
+
+                                        <div class="search-overlay search-popup">
+                                            <div class='search-box'>
+                                                <div class="search-form">
+                                                    <input class="search-input" name="search" placeholder="Search" type="text">
+
+                                                    <button class="search-button" type="submit">
+                                                        <i class="bx bx-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="get-quote">
+                                        <a href="appointment.aspx" class="default-btn">Get Appointment
+										</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Navbar Area -->
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+<a href="https://api.whatsapp.com/send?phone=+918690305654&text=Hii.." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+        <footer class="footer-area pt-100 pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-footer-widget">
+                            <h3>About</h3>
+                            <p style="text-align:justify"> D'ultimate Life Sciences is a renowned & prestigious company engaged in the manufacturing of Ayurvedic & Herbal products from last 17 years (since 2005) & has formulated more than 300 products . The registered office & Plant of the company is in Bhilwara (Rajasthan) India. </p>
+                           
+
+                            <ul class="social-icon">
+                                <li>
+                                    <span>Follow Us:</span>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <i class="bx bxl-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <i class="bx bxl-instagram"></i>
+                                    </a>
+                                </li>
+                                  <li>
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <i class="bx bxl-youtube"></i>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-footer-widget">
+                            <h3>Explore</h3>
+
+                            <ul class="import-link">
+                                <li>
+                                    <a href="Index.aspx">Home</a>
+                                </li>
+                             
+                                <li>
+                                    <a href="AboutUs.aspx">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="ContactUs.aspx">Contact Us</a>
+                                </li>
+                                 <li>
+                                    <a href="Blog.aspx">Blog</a>
+                                </li>
+                                  <li>
+                                    <a href="product.aspx">Products</a>
+                                </li>
+                                <li>
+                                    <a href="appointment.aspx">Book Consult</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                       <div class="col-lg-3 col-md-6">
+                        <div class="single-footer-widget">
+                            <h3>Quick Links</h3>
+
+                            <ul class="import-link">
+                                  <li>
+                                    <a href="Terms.aspx">Terms Conditions</a>
+                                </li>
+                                <li>
+                                    <a href="HelpFAQ.aspx">Faq</a>
+                                </li>
+                                <li>
+                                    <a href="Privacypolicy.aspx">Privacy Policy</a>
+                                </li>
+                                  <li>
+                                    <a href="returninfo.aspx">Return Policy</a>
+                                </li>
+                                <li>
+                                    <a href="login.aspx">Login</a>
+                                </li>
+                                <li>
+                                    <a href="register.aspx">Register</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="myaccount.aspx">My account</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-footer-widget">
+                            <h3>Contact Us</h3>
+
+                            <ul class="address">
+                                <li class="location">
+                                    <i class="bx bx-location-plus"></i>
+                                    Bhilwara ,(Raj.)
+								</li>
+                                <li>
+                                    <i class="bx bx-envelope"></i>
+                                    <a href="#">email</a>
+
+                                </li>
+                                <li>
+                                    <i class="bx bx-phone"></i>
+                                    <a href="tel:+1234567890">+1234567890</a>
+
+<%--                                    <a href="tel:+919314556630">+91 (931) 455-6630</a>
+                                     <a href="tel:+917229991777">+91 (722) 999-1777</a>--%>
+                                    
+
+                                </li>
+                            </ul><br /><br />
+                            <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Area -->
+
+        <!-- Start Copy Right Area -->
+        <div class="copy-right-area">
+            <div class="container">
+                <p>
+                    Copyright @2022 MF Power
+                </p>
+            </div>
+        </div>
+        <!-- End Copy Right Area -->
+
+        <!-- Start Go Top Area -->
+        <div class="go-top">
+            <i class="bx bx-chevrons-up"></i>
+            <i class="bx bx-chevrons-up"></i>
+        </div>
+        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <!-- Bootstrap Bundle Min JS -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <!-- Meanmenu Min JS -->
+        <script src="assets/js/meanmenu.min.js"></script>
+        <!-- Owl Carousel Min JS -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- Wow Min JS -->
+        <script src="assets/js/wow.min.js"></script>
+        <!-- Nice Select Min JS -->
+        <script src="assets/js/nice-select.min.js"></script>
+        <!-- Magnific Popup Min JS -->
+        <script src="assets/js/magnific-popup.min.js"></script>
+        <!-- Mixitup Min JS -->
+        <script src="assets/js/mixitup.min.js"></script>
+        <!-- Datepicker Min JS -->
+        <script src="assets/js/bootstrap-datepicker.min.js"></script>
+        <!-- Form Validator Min JS -->
+        <script src="assets/js/form-validator.min.js"></script>
+        <!-- Contact JS -->
+        <script src="assets/js/contact-form-script.js"></script>
+        <!-- Ajaxchimp Min JS -->
+        <script src="assets/js/ajaxchimp.min.js"></script>
+        <!-- Custom JS -->
+        <script src="assets/js/custom.js"></script>
+    </form>
+</body>
+</html>
